@@ -1,12 +1,10 @@
-import { test, expect } from "@playwright/test";
-import { url } from "inspector";
+import { test, expect } from '@playwright/test';
 
-const urlLocalHost = "https://playwright.dev/";
+const urlLocalHost = 'https://playwright.dev/';
 
-test.describe("Website", async () => {
-  test("should has title", async ({ page }) => {
+test.describe('Website', async () => {
+  test('should has title', async ({ page }) => {
     await page.goto(urlLocalHost);
     await expect(page).toHaveTitle(/Playwright/);
-    page.close();
   });
 });
