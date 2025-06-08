@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import { userDataType } from '../tests/testData';
+import { testUser, userDataType } from '../tests/testData';
 
 export class RegisterPage {
   readonly page: Page;
@@ -13,7 +13,6 @@ export class RegisterPage {
   readonly birthDate: Locator;
   readonly languageSelect: Locator;
   readonly phone: Locator;
-  readonly termsCheckbox: Locator;
   readonly marketingCheckbox: Locator;
   readonly submitButton: Locator;
 
@@ -31,7 +30,6 @@ export class RegisterPage {
     this.birthDate = page.locator('input[placeholder="Data urodzenia"]');
     this.languageSelect = page.locator('select');
     this.phone = page.locator('input[placeholder="Numer telefonu"]');
-    this.termsCheckbox = page.locator('text=Akceptuję regulamin');
     this.marketingCheckbox = page.locator('text=Wyrażam zgodę');
     this.submitButton = page.locator('button', { hasText: 'Zarejestruj' });
   }
@@ -54,10 +52,6 @@ export class RegisterPage {
 
     if (data.phone) {
       await this.phone.fill(data.phone);
-    }
-
-    if (data.acceptTerms) {
-      await this.termsCheckbox.click();
     }
 
     if (data.marketingOptIn) {
