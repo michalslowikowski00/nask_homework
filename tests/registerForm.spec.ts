@@ -10,11 +10,7 @@ test.describe('User', async () => {
     const registerPage = new RegisterPage(page);
     await registerPage.goto(url);
     await registerPage.fillForm(testUser);
-    const terms = page
-      .locator('form div')
-      .filter({ hasText: 'Akceptuję regulamin oraz' })
-      .locator('div');
-    await terms.click();
+    await registerPage.termsCheckbox.click();
     registerPage.submit();
     await expect(
       page.getByRole('heading', { name: /John, dziękujemy/i })
