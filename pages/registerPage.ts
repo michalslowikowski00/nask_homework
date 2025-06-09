@@ -35,7 +35,10 @@ export class RegisterPage {
       .locator('form div')
       .filter({ hasText: 'Akceptuję regulamin oraz' })
       .locator('div');
-    this.marketingCheckbox = page.locator('text=Wyrażam zgodę');
+    this.marketingCheckbox = page
+      .locator('form div')
+      .filter({ hasText: 'Wyrażam zgodę na otrzymywanie' })
+      .locator('div');
     this.submitButton = page.locator('button', { hasText: 'Zarejestruj' });
   }
 
@@ -57,10 +60,6 @@ export class RegisterPage {
 
     if (data.phone) {
       await this.phone.fill(data.phone);
-    }
-
-    if (data.marketingOptIn) {
-      await this.marketingCheckbox.check();
     }
   }
 

@@ -123,6 +123,20 @@ test.describe('User', async () => {
 
     await expect(errorText).toBeVisible();
   });
+
+  test('should be able to register with checked marketing box', async ({
+    page,
+  }) => {
+    const registerPage = new RegisterPage(page);
+    await registerPage.goto(url);
+    await registerPage.fillForm(testUser);
+    await registerPage.termsCheckbox.click();
+    await registerPage.marketingCheckbox.click();
+    await registerPage.submit();
+    await expect(
+      page.getByRole('heading', { name: /John, dziękujemy/i })
+    ).toBeVisible();
+  });
 });
 
 test.describe('Password validation', () => {
