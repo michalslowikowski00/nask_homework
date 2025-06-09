@@ -1,26 +1,35 @@
-### Prerequisites
 
-Before running the tests, make sure the testing form is running locally.
+# Playwright E2E tests
 
-### Start the test form app
-Follow the instructions in the repository below to run the form locally:
-https://github.com/sparingsoftware/qa-form
+## ✅ How to run tests locally?
 
-### Run tests using Playwright
+### 1. Clone these repos:
 
-Once the app is running at localhost, you can run Playwright tests using the following commands:
+```bash
+git clone https://github.com/michalslowikowski00/nask_homework.git
+git clone https://github.com/sparingsoftware/qa-form.git
+```
 
-    npx playwright test
-    Runs all end-to-end tests.
+### 2. Setup testing environment:
+```
+cd qa-form
+npm install
+nvm use
+npm ci
+npm run serve
+```
 
-    npx playwright test --ui
-    Opens the Playwright test runner in interactive UI mode.
+### 3. Setup tests
 
-    npx playwright test --project=chromium
-    Runs tests only in Chromium (Desktop Chrome).
+```
+cd ../nask_homework
+npm install
+npx playwright install --with-deps
+```
 
-    npx playwright test example
-    Runs tests from a specific test file.
+### 4. Run tests against testing evnivronment:
+```
+cd tests
+npx playwright test
+```
 
-    npx playwright test --debug
-    Runs tests in debug mode (useful for troubleshooting).
