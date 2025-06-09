@@ -31,7 +31,6 @@ jobs:
           git clone https://github.com/sparingsoftware/qa-form
           cd qa-form
           npm install
-          npm use
           npm ci
           npm run serve
         shell: bash
