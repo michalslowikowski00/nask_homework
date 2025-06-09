@@ -35,7 +35,7 @@ jobs:
         shell: bash
 
       - name: Wait for QA Form to be ready
-        run: npx wait-on http://localhost:8080
+        run: npx wait-on http://localhost:5173
 
       - name: Run Playwright tests
         run: npx playwright test
