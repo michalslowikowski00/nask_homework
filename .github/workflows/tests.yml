@@ -31,11 +31,15 @@ jobs:
           git clone https://github.com/sparingsoftware/qa-form
           cd qa-form
           npm install
-          npm run dev &
+          nvm use
+          npm ci
+          npm run serve
         shell: bash
 
       - name: Wait for QA Form to be ready
-        run: npx wait-on http://localhost:5173
+        run: npx wait-on http://localhost:8080
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          cd nask_homework
+          npx playwright test
