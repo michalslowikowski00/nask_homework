@@ -32,8 +32,10 @@ jobs:
           cd qa-form
           npm install
           npm ci
-          npm run serve
+          npm run serve &
         shell: bash
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Wait for QA Form to be ready
         run: npx wait-on http://localhost:8080
