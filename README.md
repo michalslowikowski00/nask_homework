@@ -1,25 +1,26 @@
-# nask_homework
+### Prerequisites
 
-Inside that directory, you can run several commands:
+Before running the tests, make sure the testing form is running locally.
 
-npx playwright test
-Runs the end-to-end tests.
+### Start the test form app
+Follow the instructions in the repository below to run the form locally:
+https://github.com/sparingsoftware/qa-form
 
-npx playwright test --ui
-Starts the interactive UI mode.
+### Run tests using Playwright
 
-npx playwright test --project=chromium
-Runs the tests only on Desktop Chrome.
-
-npx playwright test example
-Runs the tests in a specific file.
-
-npx playwright test --debug
-Runs the tests in debug mode.
-
-npx playwright codegen
-Auto generate tests with Codegen.
-
-We suggest that you begin by typing:
+Once the app is running at localhost, you can run Playwright tests using the following commands:
 
     npx playwright test
+    Runs all end-to-end tests.
+
+    npx playwright test --ui
+    Opens the Playwright test runner in interactive UI mode.
+
+    npx playwright test --project=chromium
+    Runs tests only in Chromium (Desktop Chrome).
+
+    npx playwright test example
+    Runs tests from a specific test file.
+
+    npx playwright test --debug
+    Runs tests in debug mode (useful for troubleshooting).
