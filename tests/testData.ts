@@ -7,7 +7,6 @@ export type userDataType = {
   birthDate: string;
   language?: string;
   phone?: string;
-  acceptTerms: boolean;
   marketingOptIn?: boolean;
 };
 
@@ -20,6 +19,5 @@ export const testUser: userDataType = {
   birthDate: '1990-01-01',
   language: 'en',
   phone: '1234567890',
-  acceptTerms: true,
   marketingOptIn: false,
 };

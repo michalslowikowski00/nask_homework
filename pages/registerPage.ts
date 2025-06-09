@@ -31,7 +31,10 @@ export class RegisterPage {
     this.birthDate = page.locator('input[placeholder="Data urodzenia"]');
     this.languageSelect = page.locator('select');
     this.phone = page.locator('input[placeholder="Numer telefonu"]');
-    this.termsCheckbox = page.locator('text=Akceptuję regulamin');
+    this.termsCheckbox = page
+      .locator('form div')
+      .filter({ hasText: 'Akceptuję regulamin oraz' })
+      .locator('div');
     this.marketingCheckbox = page.locator('text=Wyrażam zgodę');
     this.submitButton = page.locator('button', { hasText: 'Zarejestruj' });
   }
@@ -54,10 +57,6 @@ export class RegisterPage {
 
     if (data.phone) {
       await this.phone.fill(data.phone);
-    }
-
-    if (data.acceptTerms) {
-      await this.termsCheckbox.click();
     }
 
     if (data.marketingOptIn) {
